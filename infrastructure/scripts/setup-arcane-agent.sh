@@ -10,7 +10,7 @@ services:
     environment:
       - EDGE_AGENT=true
       - EDGE_TRANSPORT=auto
-      - AGENT_TOKEN=arc_ff85030408d450b883ca6390edbd7b60b1abf1cf425a3685fc19ba65bad4619c
+      - AGENT_TOKEN=${AGENT_API_TOKEN}
       - MANAGER_API_URL=http://${MANAGER_API_URL}:3552
 	    - PUID=1000
 	    - PGID=1000
