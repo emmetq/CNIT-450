@@ -18,7 +18,7 @@ services:
       - ENCRYPTION_KEY=$(openssl rand -hex 32)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-	    - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
       - /opt/docker/arcane-data:/app/data
       - /opt/docker/arcane-compose:/opt/docker
     cgroup: host
