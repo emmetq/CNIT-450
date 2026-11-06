@@ -18,6 +18,7 @@ services:
       - PGID=1000
       - ENCRYPTION_KEY=$(openssl rand -hex 32)
       - PROJECTS_DIRECTORY=/opt/docker
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
     cgroup: host
     restart: unless-stopped
 EOF
