@@ -1,6 +1,10 @@
 sudo mkdir /opt/docker
 sudo chown root:users -R /opt/docker
 sudo chmod g+w -R /opt/docker
+echo -n "Enter Agent Token: " 
+read AGENT_API_TOKEN
+echo -n "Enter Manager URL: " 
+read MANAGER_API_URL
 sudo tee /opt/docker/compose.yml <<EOF
 services:
   arcane-edge-agent:
@@ -11,7 +15,7 @@ services:
       - EDGE_AGENT=true
       - EDGE_TRANSPORT=auto
       - AGENT_TOKEN=${AGENT_API_TOKEN}
-      - MANAGER_API_URL=http://${MANAGER_API_URL}:3552
+      - MANAGER_API_URL=${MANAGER_API_URL}
 	    - PUID=1000
 	    - PGID=1000
 	    - PROJECTS_DIRECTORY=/opt/docker
@@ -22,5 +26,4 @@ services:
       - /opt/docker/arcane-data:/app/data
       - /opt/docker/arcane-compose:/opt/docker
     cgroup: host
-    restart: unless-stopped
 EOF
